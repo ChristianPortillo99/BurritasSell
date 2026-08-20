@@ -4,4 +4,6 @@ dist
 .pnpm-store
 pnpm-lock.yaml
 api/data/
+api/node_modules/
+outputs/
 .env

@@ -43,6 +43,10 @@ CREATE TABLE IF NOT EXISTS inventory_movements (
  user_id INTEGER NOT NULL REFERENCES users(id), type TEXT NOT NULL CHECK(type IN ('entry','sale','adjustment','void')),
  quantity_delta INTEGER NOT NULL, reference_type TEXT, reference_id INTEGER, note TEXT, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE IF NOT EXISTS audit_logs (
+ id INTEGER PRIMARY KEY, user_id INTEGER REFERENCES users(id), action TEXT NOT NULL, entity_type TEXT NOT NULL,
+ entity_id TEXT, detail TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 `);
 
 const userColumns = db.prepare('PRAGMA table_info(users)').all().map(column => column.name);
