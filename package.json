@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "node --watch api/server.js",
+    "start:api": "node api/server.js",
+    "check:api": "node --check api/server.js && node --check api/db.js && node --check api/auth.js",
     "build": "vite build",
     "preview": "vite preview"
   },

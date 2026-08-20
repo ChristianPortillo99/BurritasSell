@@ -3,3 +3,5 @@ dist
 .vite
 .pnpm-store
 pnpm-lock.yaml
+api/data/
+.env
